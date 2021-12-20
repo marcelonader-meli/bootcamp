@@ -15,26 +15,21 @@ package com.company.introducao_a_java_tm.pratica_integradora2.exercicio5;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
-
-    public static int countDigits (int number) {
-        return (number == 0)
-            ? 1
-            : (int)(Math.log10(number) + 1);
-    }
 
 static List<Integer> listNaturalNumbers(int n, int m, int d) {
     List<Integer> listNumbers = new LinkedList<>();
     int count = 0;
-    int initiatorNumber = 1;
-    if (m != 1) {
-        while (countDigits(count) != m)
-            count++;
-        initiatorNumber = count;
-    }
-    for (int i = initiatorNumber; listNumbers.size() < n; i++) {
-        if((String.valueOf(i).endsWith(String.valueOf(d))))
+    Pattern pattern = Pattern.compile("" + d + "");
+
+    for (int i = 0; listNumbers.size() < n; i++) {
+        Matcher matcher = pattern.matcher(String.valueOf(i));
+        count=0;
+        while (matcher.find()) count++;
+        if(String.valueOf(i).endsWith(String.valueOf(d)) && count == m)
             listNumbers.add(i);
         else
             continue;
