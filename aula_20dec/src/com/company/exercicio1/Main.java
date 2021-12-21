@@ -27,9 +27,7 @@ package com.company.exercicio1;
     anterior.
 */
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -37,12 +35,52 @@ public class Main {
 
         List<Precedente<Pessoa>> listPessoas = new ArrayList<>();
 
-        listPessoas.add(new Pessoa("Marcelo", 123123));
-        listPessoas.add(new Pessoa("Paulo", 323123));
-        listPessoas.add(new Pessoa("Rita", 243123));
+        listPessoas.add(new Pessoa("Monurla", "416.310.830-07"));
+        listPessoas.add(new Pessoa("Wofoein", "501.604.480-50"));
+        listPessoas.add(new Pessoa("Myowifan", "004.782.490-55"));
+        listPessoas.add(new Pessoa("Lipevi", "882.128.270-89"));
+        listPessoas.add(new Pessoa("Barxiout", "631.908.560-60"));
+        listPessoas.add(new Pessoa("Eron", "498.069.630-91"));
+        listPessoas.add(new Pessoa("Sumyekub", "014.255.970-92"));
 
-//        SortUtil.sort(listPessoas);
 
+        System.out.println("\n=====================LISTA DE PESSOAS=====================");
+
+        System.out.println("\n+++++++++++++++++++++++NÃO ORDENADA+++++++++++++++++++++++");
+
+            for(Precedente<Pessoa> p: listPessoas){
+                System.out.println("\n" + p);
+            }
+
+        SortUtil.sort(listPessoas);
+        System.out.println("\n+++++++++++++++++++++++++ORDENADA+++++++++++++++++++++++++");
+
+        for(Precedente<Pessoa> p: listPessoas){
+            System.out.println("\n" + p);
+        }
+
+
+        List<Precedente<Celular>> listCelulares = new ArrayList<>();
+
+        listCelulares.add(new Celular(94324912));
+        listCelulares.add(new Celular(98377261));
+        listCelulares.add(new Celular(96273827));
+        listCelulares.add(new Celular(91234978));
+        System.out.println("\n====================LISTA DE CELULARES====================");
+
+        System.out.println("\n+++++++++++++++++++++++NÃO ORDENADA+++++++++++++++++++++++");
+
+        for(Precedente<Celular> c: listCelulares){
+            System.out.println("\n" + c);
+        }
+
+        SortUtil.sort(listCelulares);
+
+        System.out.println("\n+++++++++++++++++++++++++ORDENADA+++++++++++++++++++++++++");
+
+        for(Precedente<Celular> c: listCelulares){
+            System.out.println("\n" + c);
+        }
 
     }
 }
