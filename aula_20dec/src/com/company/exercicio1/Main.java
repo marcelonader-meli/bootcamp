@@ -62,13 +62,19 @@ public class Main {
 
         List<Precedente<Celular>> listCelulares = new ArrayList<>();
 
-        listCelulares.add(new Celular(94324912));
-        listCelulares.add(new Celular(98377261));
-        listCelulares.add(new Celular(96273827));
-        listCelulares.add(new Celular(91234978));
+        listCelulares.add(new Celular("(11) 9432-4912"));
+        listCelulares.add(new Celular("(63) 9837-7261"));
+        listCelulares.add(new Celular("(11) 9627-3827"));
+        listCelulares.add(new Celular("(41) 9123-4978"));
+        listCelulares.add(new Celular("(11) 9232-4443"));
+        listCelulares.add(new Celular("(63) 9235-5161"));
+        listCelulares.add(new Celular("(43) 9888-3300"));
+        listCelulares.add(new Celular("(19) 9564-0001"));
+        
         System.out.println("\n====================LISTA DE CELULARES====================");
 
         System.out.println("\n+++++++++++++++++++++++NÃO ORDENADA+++++++++++++++++++++++");
+
 
         for(Precedente<Celular> c: listCelulares){
             System.out.println("\n" + c);

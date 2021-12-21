@@ -1,18 +1,21 @@
 package com.company.exercicio1;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Celular implements Precedente<Celular>{
-    private Integer numero;
+    private String numero;
     private Pessoa proprietario;
 
-    public Celular(Integer numero) {
+    public Celular(String numero) {
         this.numero = numero;
     }
 
-    public Integer getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
@@ -26,7 +29,23 @@ public class Celular implements Precedente<Celular>{
 
     @Override
     public int precedeA(Celular celular) {
-        return this.getNumero().compareTo(celular.getNumero());
+        Pattern pattern = Pattern.compile("[0-9]");
+        String numThisCelular = "";
+        String numParamCelular = "";
+
+        for(int i = 0; i< this.getNumero().length(); i++){
+            Matcher matcher = pattern.matcher(String.valueOf(this.getNumero().charAt(i)));
+            if(matcher.find())
+                numThisCelular += this.getNumero().charAt(i);
+        }
+
+        for(int i = 0; i< celular.getNumero().length(); i++){
+            Matcher matcher = pattern.matcher(String.valueOf(this.getNumero().charAt(i)));
+            if(matcher.find())
+                numParamCelular += celular.getNumero().charAt(i);
+        }
+
+        return numThisCelular.compareTo(numParamCelular);
     }
 
     @Override
