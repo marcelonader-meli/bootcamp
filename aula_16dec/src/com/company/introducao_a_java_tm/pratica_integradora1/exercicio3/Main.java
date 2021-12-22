@@ -1,5 +1,7 @@
 package com.company.introducao_a_java_tm.pratica_integradora1.exercicio3;
 
+import java.util.*;
+
 public class Main {
     /*
         Exercício 3: Para um protótipo de supermercado, crie um programa que leia 3 produtos e
@@ -36,5 +38,18 @@ public class Main {
         carrinhoDeCompras.getListaDeProdutos().add(produto3);
 
         carrinhoDeCompras.visualizarCarrinho();
+
+
+       List<String> vetor = new ArrayList<>();
+
+       vetor.add("Marcelo");
+       vetor.add("Raquel");
+       vetor.add("Ana Julia");
+       vetor.add("Bruno");
+
+        vetor.forEach(item -> System.out.println(item));
+
+        Collections.sort(vetor);
+
     }
 }
