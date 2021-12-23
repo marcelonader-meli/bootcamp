@@ -33,4 +33,13 @@ public class Corrida {
         else
             System.out.println("Não foi possível registrar o veículo. Não há mais vagas para participar da corrida.");
     }
+
+    public void removerVeiculo(Veiculo veiculo){
+
+    }
+
+    public void removerVeiculoPorPlaca(String placa){
+
+    }
+
 }
