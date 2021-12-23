@@ -4,6 +4,7 @@ public class Moto extends Veiculo{
 
 
     public Moto() {
-        this.setPeso(300.0);
+        super();
+        super.setPeso(300.0);
     }
 }

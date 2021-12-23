@@ -8,13 +8,13 @@ import java.util.Map;
 @Service
 public class ConversorService {
 
-    private static String auxConverteNumerosIntermediarios(int num, int numFor, int comparador, String resultIfEElseParam2, String resultElseParam1){
+    private static String auxConverteNumerosIntermediarios(int num, int numRepeat, int comparador, String resultIfEElseParam2, String resultElseParam1){
         StringBuilder result = new StringBuilder();
         if (num < comparador) {
-            result.append(String.valueOf(resultIfEElseParam2).repeat(Math.max(0, numFor)));
+            result.append(String.valueOf(resultIfEElseParam2).repeat(Math.max(0, numRepeat)));
         } else {
             result = new StringBuilder(resultElseParam1);
-            result.append(String.valueOf(resultIfEElseParam2).repeat(Math.max(0, numFor - 5)));
+            result.append(String.valueOf(resultIfEElseParam2).repeat(Math.max(0, numRepeat - 5)));
         }
         return result.toString();
     }
@@ -45,8 +45,13 @@ public class ConversorService {
                 if(num <= 3000) {
                     result.append("M".repeat(Math.max(0, numTratado)));
                     return result.toString();
-                } else {
-                    return null;
+                } else if(num < 10000){
+                    if (mapaNumerosMagicos.get(numTratado) != null) {
+                        return "_"+ mapaNumerosMagicos.get(numTratado);
+                    }
+                    else {
+                        return "_"+ auxConverteNumerosIntermediarios(numTratado, numTratado,5, "I", "V");
+                    }
                 }
         }
         return null;

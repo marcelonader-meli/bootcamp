@@ -15,10 +15,15 @@ public class Controller{
     @Autowired
     private ConversorService conversorService;
 
+    @GetMapping
+    public ResponseEntity<?> home(){
+        return ResponseEntity.ok("Digite um número decimal ao final da URL (acrescentando uma \"/\" antes do número), para saber o seu correspondente em números romanos.");
+    }
+
     @GetMapping("/{numero}")
     public ResponseEntity<?> converteNumeroDecimalParaRomano(@PathVariable Integer numero){
         return (conversorService.converteNumeroDecParaRomano(numero) != null)
-                ? ResponseEntity.ok(conversorService.converteNumeroDecParaRomano(numero))
-                : ResponseEntity.badRequest().body("Tente com um número que seja menor que 4000.");
+                ? ResponseEntity.ok("O número \"" + numero + "\" em números romanos é: \"" + conversorService.converteNumeroDecParaRomano(numero) + "\"")
+                : ResponseEntity.badRequest().body("Tente com um número que seja menor que \"10000\".");
     }
 }
