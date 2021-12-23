@@ -1,6 +1,6 @@
 package com.company.pratica_integradora2.dakar;
 
-public class Veiculo implements Comparable{
+public class Veiculo{
     private Double velocidade;
     private Double aceleracao;
     private Double anguloDeGiro;
@@ -53,6 +53,19 @@ public class Veiculo implements Comparable{
         return rodas;
     }
 
+    public Veiculo(Double peso, Integer rodas) {
+        this.peso = peso;
+        this.rodas = rodas;
+    }
+
+    public Veiculo(Double velocidade, Double aceleracao, Double anguloDeGiro, String placa, Double peso, Integer rodas) {
+        this.velocidade = velocidade;
+        this.aceleracao = aceleracao;
+        this.anguloDeGiro = anguloDeGiro;
+        this.placa = placa;
+        this.peso = peso;
+        this.rodas = rodas;
+    }
     @Override
     public String toString() {
         return "Veiculo{" +
@@ -65,15 +78,5 @@ public class Veiculo implements Comparable{
                 '}';
     }
 
-    @Override
-    public int compareTo(Object o) {
-        Veiculo v = (Veiculo) o;
-        if((this.getVelocidade() * this.getAceleracao() / (this.getAnguloDeGiro() * (this.getPeso() - this.getRodas() * 100))) > (v.getVelocidade() * v.getAceleracao() / (v.getAnguloDeGiro() * (v.getPeso() - v.getRodas() * 100)))){
-            return 1;
-        } else if((this.getVelocidade() * this.getAceleracao() / (this.getAnguloDeGiro() * (this.getPeso() - this.getRodas() * 100))) < (v.getVelocidade() * v.getAceleracao() / (v.getAnguloDeGiro() * (v.getPeso() - v.getRodas() * 100)))){
-            return -1;
-        }
-        return 0;
-    }
 
 }

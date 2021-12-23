@@ -63,15 +63,39 @@ package com.company.pratica_integradora2.dakar;
     public void socorrerMoto(String documento);
 */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Corrida corrida1 = new Corrida();
-        corrida1.setQuantidadeVeiculosPermitidos(5);
-        corrida1.registrarCarro(240.0, 65.1, 90.0, "DAI2627");
-        corrida1.registrarCarro(180.7, 75.4, 80.0, "JSA2627");
-        corrida1.registrarCarro(298.0, 55.2, 96.0, "JWT2627");
-        corrida1.registrarCarro(167.5, 68.0, 90.0, "FOK2627");
-        corrida1.registrarCarro(180.8, 89.5, 120.0, "GOL2627");
 
-        corrida1.getVencedor();
+        corrida1.setQuantidadeVeiculosPermitidos(5);
+
+        Veiculo motoCriada = new Moto(180.8, 89.5, 120.0, "GOL6587");
+
+        corrida1.registrarCarro(240.0, 65.1, 90.0, "DAI2134");
+        corrida1.registrarMoto(180.7, 105.4, 80.0, "JSA9899");
+        corrida1.registrarCarro(298.0, 55.2, 96.0, "JWT2627");
+        corrida1.registrarCarro(167.5, 68.0, 90.0, "FOK1235");
+        corrida1.registrarMoto(motoCriada);
+
+        corrida1.registrarCarro(180.8, 89.5, 120.0, "FRI2221");
+        System.out.println("Quantidade de veículos permitidos: " +corrida1.getQuantidadeVeiculosPermitidos());
+
+        System.out.println("\n==================LISTA DE VEÍCULOS PARTICIPANTES==================\n");
+        for(Veiculo v: corrida1.getListaVeiculos())
+            System.out.println(v);
+
+        System.out.println("\nVeículo de placa FOK1235 foi colidido pelo veículo de placa GOL6587.");
+        corrida1.socorrerCarro("FOK1235");
+
+        System.out.println("Não foi possível salvar o veículo de placa FOK1235. Veículo removido da corrida.\n");
+        corrida1.removerVeiculoPorPlaca("FOK1235");
+
+        System.out.println("Veículo de placa GOL6587: desclassificado e removido da corrida.\n");
+
+        corrida1.removerVeiculo(motoCriada);
+
+        Veiculo veiculoVencedorDaCorrida = corrida1.getVencedor();
+
+        System.out.println("\nVencedor da corrida: " + (veiculoVencedorDaCorrida.getRodas() == 4 ? "carro" : "moto") + " de placa " + veiculoVencedorDaCorrida.getPlaca());
+
     }
 }
