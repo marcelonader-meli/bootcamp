@@ -1,0 +1,29 @@
+[ {
+  "aluno" : {
+    "id" : 1,
+    "nome" : "Rita Nader",
+    "disciplinasAprovadas" : [ {
+      "nome" : "Português",
+      "nota" : 9.5
+    }, {
+      "nome" : "Matemática",
+      "nota" : 10
+    } ]
+  },
+  "media" : 9.75,
+  "mensagem" : "Você concluiu o curso com louvor. Sua nota foi superior a 9. Parabéns!!!"
+}, {
+  "aluno" : {
+    "id" : 2,
+    "nome" : "Marcelo Nader",
+    "disciplinasAprovadas" : [ {
+      "nome" : "Português",
+      "nota" : 5.5
+    }, {
+      "nome" : "Matemática",
+      "nota" : 8
+    } ]
+  },
+  "media" : 6.75,
+  "mensagem" : "Aluno aprovado"
+} ]

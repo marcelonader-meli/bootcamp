@@ -1,0 +1,21 @@
+[ {
+  "id" : 1,
+  "nome" : "Rita Nader",
+  "disciplinasAprovadas" : [ {
+    "nome" : "Português",
+    "nota" : 9.5
+  }, {
+    "nome" : "Matemática",
+    "nota" : 10
+  } ]
+}, {
+  "id" : 2,
+  "nome" : "Marcelo Nader",
+  "disciplinasAprovadas" : [ {
+    "nome" : "Português",
+    "nota" : 5.5
+  }, {
+    "nome" : "Matemática",
+    "nota" : 8
+  } ]
+} ]
